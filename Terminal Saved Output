@@ -1,0 +1,163 @@
+Last login: Thu Dec  9 18:35:16 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) Mahbubas-MBP:~ mahbubasultana$ 
+  [Restored Dec 9, 2021 at 6:41:58 PM]
+Last login: Thu Dec  9 18:39:48 on ttys000
+Restored session: Thu Dec  9 18:41:08 EST 2021
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) Mahbubas-MBP:~ mahbubasultana$ 
+(base) Mahbubas-MBP:~ mahbubasultana$ 
+(base) Mahbubas-MBP:~ mahbubasultana$ 
+(base) Mahbubas-MBP:~ mahbubasultana$ 
+(base) Mahbubas-MBP:~ mahbubasultana$ 
+(base) Mahbubas-MBP:~ mahbubasultana$ ssh MahbubaAhi@20.115.123.228
+MahbubaAhi@20.115.123.228's password: 
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1022-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  9 23:43:01 UTC 2021
+
+  System load:  0.0               Processes:             110
+  Usage of /:   7.4% of 28.90GB   Users logged in:       0
+  Memory usage: 19%               IPv4 address for eth0: 10.5.0.4
+  Swap usage:   0%
+
+
+2 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Thu Dec  9 05:44:59 2021 from 24.187.182.138
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ sudo apt-get update
+Hit:1 http://azure.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://azure.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+Get:4 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:5 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1391 kB]
+Get:6 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 c-n-f Metadata [14.6 kB]
+Get:7 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [881 kB]
+Get:8 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 c-n-f Metadata [19.6 kB]
+Get:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1064 kB]        
+Get:10 http://security.ubuntu.com/ubuntu focal-security/main Translation-en [196 kB]
+Get:11 http://security.ubuntu.com/ubuntu focal-security/main amd64 c-n-f Metadata [9076 B]
+Get:12 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [665 kB]
+Get:13 http://security.ubuntu.com/ubuntu focal-security/universe amd64 c-n-f Metadata [12.9 kB]
+Fetched 4589 kB in 2s (2838 kB/s)                     
+Reading package lists... Done
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ sudo apt-get install mysql-client mysql-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+mysql-client is already the newest version (8.0.27-0ubuntu0.20.04.1).
+mysql-server is already the newest version (8.0.27-0ubuntu0.20.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ 
+MahbubaAhi@AHIMahbuba:~$ sudo serviec mysql restart
+sudo: serviec: command not found
+MahbubaAhi@AHIMahbuba:~$ sudo service mysql restart
+MahbubaAhi@AHIMahbuba:~$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.27-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> create user 'replica_user'@'%' identified by 'replica_user';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'replica_user'@'%'
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> create user'replica_user'@'%'identified by'replica_user';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'replica_user'@'%'
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> create user 'slave_user'@'%' identified by 'slave_user';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> GRANT REPLICATION SLAVE ON *.* TO 'SLAVE_USER'@'%'IDENTIFIED BY 'PASSWORD';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IDENTIFIED BY 'PASSWORD'' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> CREATE REPLICATION SLAVE ON *.* TO 'SLAVE_USER'@'%' IDENTIFIED BY 'PASSWORD';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REPLICATION SLAVE ON *.* TO 'SLAVE_USER'@'%' IDENTIFIED BY 'PASSWORD'' at line 1
+mysql> GRANT REPLICATION SLAVE ON *.* TO SLAVE-USER'@'%';
+    '> 
+    '> 
+    '> flush privileges;
+    '> 
+    '> 
+    '> 
+    '> 
+    '> sudo mysql
+    '> sudo service mysql restart
+    '> sudo mysql
+    '> 
+    '> create database DB1;
+    '> 
+    '> 
+    '> 
+    '> 
+    '> show databases;
+    '> 
+    '> 
+    '> 
+    '> sudo mysql service restart
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> sudo mysql
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
+    '> 
